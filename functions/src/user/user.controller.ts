@@ -16,8 +16,6 @@ export async function redister(req: Request, res: Response) {
            password,
            email
        })
-       //await admin.auth().setCustomUserClaims(uid, { role })
-
        return res.status(201).send({ creds })
    } catch (err) {
        return handleError(res, err)
