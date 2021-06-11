@@ -12,8 +12,9 @@ export async function createTodo(req: Request, res: Response) {
 export async function listTodos(req: Request, res: Response) {
 
     firebase.firestore().collection("todo").get().then((querySnapshot) => {
-        const todos = querySnapshot.docs.map(doc => doc.data());
-        return res.status(201).send({ todos });
+        //const todos = querySnapshot.docs.map(doc => doc.data());
+        const text = 'todos.length()';
+        return res.status(201).send({ text });
     });
     
 }
