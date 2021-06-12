@@ -21,6 +21,7 @@ jobs:
     - name: Firebase Deploy
       run: |
         sudo npm install -g firebase-tools
+        firebase use default
         firebase functions:config:set app.apikey="AIzaSyBFo2_C8J24zjmn4Fu7ptpeSsVrx8TjSzM" app.authdomain="fir-app-4ae27.firebaseapp.com" app.projectid="fir-app-4ae27" app.storagebucket="fir-app-4ae27.appspot.com" app.senderid="851436443137" app.appid="1:851436443137:web:b912677354c27853275200" app.measurementid="G-DCSR83L10Z"
         cd functions
         firebase functions:config:get > .runtimeconfig.json
