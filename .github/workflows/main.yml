@@ -10,6 +10,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    environment:
+      name: development
     steps:
     - uses: actions/checkout@v1
     - name: Build
@@ -22,7 +24,7 @@ jobs:
       run: |
         sudo npm install -g firebase-tools
         firebase use default --token ${{ secrets.FIREBASE_TOKEN }}
-        firebase functions:config:set app.apikey="AIzaSyBFo2_C8J24zjmn4Fu7ptpeSsVrx8TjSzM" app.authdomain="fir-app-4ae27.firebaseapp.com" app.projectid="fir-app-4ae27" app.storagebucket="fir-app-4ae27.appspot.com" app.senderid="851436443137" app.appid="1:851436443137:web:b912677354c27853275200" app.measurementid="G-DCSR83L10Z" --token ${{ secrets.FIREBASE_TOKEN }}
+        firebase functions:config:set app.apikey=${{ secrets.API_KEY }} app.authdomain=${{ secrets.AUTH_DOMAIN }} app.projectid=${{ secrets.PROJECT_ID }} app.storagebucket=${{ secrets.STORAGE_BUCKET }} app.senderid=${{ secrets.SENDER_ID }} app.appid=${{ secrets.APP_ID }} app.measurementid=${{ secrets.MEASUREMENT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
         cd functions
         firebase functions:config:get > .runtimeconfig.json --token ${{ secrets.FIREBASE_TOKEN }}
         cd ../
