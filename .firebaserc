@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "fir-app-4ae27"
+    "default": "fir-app-4ae27",
+    "production": "fir-app-prod-904ce"
   }
 }

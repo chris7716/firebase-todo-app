@@ -13,14 +13,16 @@ app.use(bodyParser.json());
 app.use(cors({ origin: true }));
 routesConfig(app);
 
+console.log(functions.config().app.apikey);
+
 var firebaseConfig = {
-    apiKey: "AIzaSyBFo2_C8J24zjmn4Fu7ptpeSsVrx8TjSzM",
-    authDomain: "fir-app-4ae27.firebaseapp.com",
-    projectId: "fir-app-4ae27",
-    storageBucket: "fir-app-4ae27.appspot.com",
-    messagingSenderId: "851436443137",
-    appId: "1:851436443137:web:b912677354c27853275200",
-    measurementId: "G-DCSR83L10Z"
+    apiKey: functions.config().app.apikey,
+    authDomain: functions.config().app.authdomain,
+    projectId: functions.config().app.projectid,
+    storageBucket: functions.config().app.storagebucket,
+    messagingSenderId: functions.config().app.senderid,
+    appId: functions.config().app.appid,
+    measurementId: functions.config().app.measurementid
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
